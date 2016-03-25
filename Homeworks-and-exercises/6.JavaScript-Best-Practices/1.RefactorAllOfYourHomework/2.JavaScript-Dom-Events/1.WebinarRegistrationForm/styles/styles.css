@@ -1,0 +1,42 @@
+html {
+  min-height: 100%;
+  /* make sure it is at least as tall as the viewport */
+  position: relative; }
+  html body {
+    width: 400px;
+    height: 100%;
+    margin: auto;
+    font-size: 14px;
+    font-family: Arial, sans-serif; }
+    html body #wrapper {
+      background-color: #FFF7F0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      top: 20px;
+      bottom: 20px;
+      width: 400px;
+      /*
+      overflow:hidden;
+      z-index:-1;*/ }
+      html body #wrapper h1 {
+        font-size: 1.5em;
+        margin: 15px 0 35px 0; }
+      html body #wrapper input, html body #wrapper label {
+        display: block; }
+      html body #wrapper .texture-class {
+        display: flex; }
+      html body #wrapper .required:after {
+        content: " *";
+        color: #FF1716; }
+      html body #wrapper #register {
+        position: absolute;
+        bottom: 15px;
+        left: 110px; }
+      html body #wrapper #reset {
+        position: absolute;
+        bottom: 15px;
+        right: 110px; }
+
+/*# sourceMappingURL=styles.css.map */

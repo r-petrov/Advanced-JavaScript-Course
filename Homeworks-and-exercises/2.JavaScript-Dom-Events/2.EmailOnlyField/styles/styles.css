@@ -1,0 +1,12 @@
+body {
+  margin: auto; }
+  body #email {
+    width: 150px;
+    height: 50px; }
+  body #email-copy {
+    width: 150px;
+    height: 50px; }
+  body #validate:hover {
+    border: 4px solid #A4C6FD; }
+
+/*# sourceMappingURL=styles.css.map */

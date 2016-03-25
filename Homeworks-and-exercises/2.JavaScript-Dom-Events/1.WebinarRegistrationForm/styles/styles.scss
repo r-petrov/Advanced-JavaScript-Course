@@ -1,0 +1,63 @@
+@mixin align-buttons($horizontal-align) {
+  position: absolute;
+  bottom: 5px;
+  $horizontal-align: 110px;
+}
+
+html {
+  min-height: 100%;/* make sure it is at least as tall as the viewport */
+  position: relative;
+
+  body {
+    width: 400px;
+    height: 100%;
+    margin: auto;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+
+    #wrapper {
+      background-color: #FFF7F0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      position:absolute;
+      top:20px;
+      bottom:20px;
+      width: 400px;
+      /*
+      overflow:hidden;
+      z-index:-1;*/
+
+      h1 {
+        font-size: 1.5em;
+        margin: 15px 0 35px 0;
+      }
+
+      input, label {
+        display: block;
+      }
+
+      .texture-class {
+        display: flex;
+      }
+
+      .required:after {
+        content:" *";
+        color: #FF1716;
+      }
+
+      #register {
+        position: absolute;
+        bottom: 15px;
+        left: 110px;
+      }
+
+      #reset {
+        position: absolute;
+        bottom: 15px;
+        right: 110px;
+      }
+    }
+  }
+}

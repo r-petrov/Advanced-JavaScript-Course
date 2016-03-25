@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Registration for webinar</title>
+        <link href="styles/reset.css" rel="stylesheet" />
+        <link href="styles/styles.css" rel="stylesheet" />
+        <!--<script src="scripts/handle-checkbox-event.js" type="text/javascript"></script>-->
+
+    </head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <h1>
+                    Регистрация за уебинар
+                </h1>
+            </header>
+            <section>
+                <form action="">
+                    <label class="required" for="names">Име и Фамилия:</label>
+                    <input id="names" name="names" type="text" required />
+
+                    <label for="address">Адрес:</label>
+                    <input id="address" name="address" type="text" />
+
+                    <label for="town">Населено място:</label>
+                    <input id="town" name="town" type="text" />
+
+                    <label for="post-code">Пощенски код:</label>
+                    <input id="post-code" name="post-code" type="text" />
+
+                    <label class="required" for="email">Email:</label>
+                    <input id="email" name="email" type="text" required />
+
+                    <label class="required" for="tel">Телефон:</label>
+                    <input id="tel" name="tel" type="tel" required />
+
+                    <label class="required" for="date">Дата на семинара:</label>
+                    <input id="date" name="date" type="date" value="mm/dd/yyyy" required />
+
+                    <label class="texture-class" for="texture">
+                        <input id="texture" class="texture-class" name="texture-name" type="checkbox" />
+                        Желая фактура
+                    </label>
+
+                    <button id="register" name="register" type="submit">Регистрирай се</button>
+                    <button id="reset" name="reset" type="reset">Изчисти</button>
+                </form>
+            </section>
+        </div>
+        <!--<script>
+            "use strict";
+            var createLabel = function createLabel(inputId, innerText) {
+                var label = document.createElement('label');
+                label.setAttribute('class', 'required added');
+                label.innerText = innerText;
+
+                return label;
+            };
+
+            var createInput = function createInput(id, name, type) {
+                var input = document.createElement('input');
+                input.setAttribute('id', id);
+                input.setAttribute('class', 'added');
+                input.setAttribute('name', name);
+                input.setAttribute('type', type);
+                input.setAttribute('required', 'required');
+
+                return input;
+            };
+
+            var removeElements = function removeElements() {
+                var className = 'added';
+                var elements = document.getElementsByClassName(className);
+                for (var index in elements) {
+                    var element = elements[index];
+                    element.parentNode.removeChild(element);
+                }
+            };
+
+            function handleCheckEvent(e) {
+                if (e.target.checked === true) {
+                    var form = document.getElementsByTagName('form')[0];
+                    var dFrag = document.createDocumentFragment();
+                    var labelsTexts = ['Фирма/Организация:', 'МОЛ:', 'ЕИК:', 'ИН по ДДС:', 'Адрес:'];
+                    var inputsIds = ['organization', 'mol', 'eik', 'in-dds', 'address'];
+                    var length = labelsTexts.length;
+                    for (var index = 0; index < length; index++) {
+                        var text = labelsTexts[index];
+                        var id = inputsIds[index];
+                        var label = createLabel(id, text);
+                        var input = createInput(id, id, 'text');
+                        dFrag.appendChild(label);
+                        dFrag.appendChild(input);
+                    }
+
+                    form.appendChild(dFrag);
+                }
+                else {
+                    removeElements();
+                }
+            }
+
+            var checkbox = document.getElementById('texture');
+            checkbox.addEventListener('click', handleCheckEvent, false);
+        </script>-->
+        <script src="scripts/handle-checkbox-event.js" type="text/javascript"></script>
+    </body>
+</html>
