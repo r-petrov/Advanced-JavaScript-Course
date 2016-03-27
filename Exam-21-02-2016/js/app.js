@@ -2,7 +2,18 @@ var app = app || {};
 
 (function (eventSystem) {
 	//TODO: Dynamicaly add options to select HTML tag
-	
+	var select = document.getElementById('halls'),
+        openSourceOption = document.createElement('option'),
+        inspirationOption = document.createElement('option');
+
+    openSourceOption.value = 'Open Source';
+    openSourceOption.innerHTML = 'Open Source';
+    inspirationOption.value = 'Inspiration';
+    inspirationOption.innerHTML = 'Inspiration';
+
+    select.appendChild(openSourceOption);
+    select.appendChild(inspirationOption);
+
     select.addEventListener('change', function (ev) {
         if($('#halls option:first-child').val() === 'Choose Hall') {
             $('#halls option:first-child').remove();

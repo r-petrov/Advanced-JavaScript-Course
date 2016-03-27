@@ -25,7 +25,5 @@ var app = app || {};
         this.courses.push(course);
     };
 
-    eventsSystem.trainer = function(name, workHours) {
-        return new Trainer(name, workHours);
-    }
+    eventsSystem.trainer = Trainer;
 })(app);

@@ -3,8 +3,8 @@ var app = app || {};
 (function(eventsSystem) {
     function Lecture(options) {
         eventsSystem._Event.call(this, options);
-        this._trainer = this.setTrainer (options.trainer);
-        this._course = this.setCourse(options.course);
+        this.setTrainer (options.trainer);
+        this.setCourse(options.course);
     }
 
     Lecture.extends(eventsSystem._Event);
@@ -14,7 +14,7 @@ var app = app || {};
     };
 
     Lecture.prototype.setTrainer = function(trainer) {
-        if (!(trainer instanceof Trainer)) {
+        if (!(trainer instanceof eventsSystem.trainer)) {
             throw new Error('Invalid trainer!');
         }
 
@@ -34,7 +34,5 @@ var app = app || {};
     };
 
 
-    eventsSystem.lecture = function(options) {
-        return new Lecture(options);
-    }
+    eventsSystem.lecture = Lecture;
 })(app);

@@ -71,5 +71,5 @@ var app = app || {};
 
     eventsSystem.halls = halls;
 
-    console. log(examPractice);
+    console.log(examPractice.halls);
 }(app));

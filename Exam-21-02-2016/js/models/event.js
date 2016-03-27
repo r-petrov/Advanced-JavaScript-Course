@@ -6,10 +6,10 @@ var app = app || {};
             throw new Error('Cannot instantiate an abstract class!');
         }
 
-        this._title = this.setTitle(options.title);
-        this._type = this.setType(options.type);
-        this._duration = this.setDuration(options.duration);
-        this._date = this.setDate(options.date);
+        this.setTitle(options.title);
+        this.setType(options.type);
+        this.setDuration(options.duration);
+        this.setDate(options.date);
     }
 
     Event.prototype.getTitle = function() {
@@ -17,7 +17,7 @@ var app = app || {};
     };
 
     Event.prototype.setTitle = function(title) {
-        var regex = /[A-z ]+/g;
+        var regex = /\b[A-z ]+\b/g;
         if (!regex.test(title)) {
             throw new Error('Title should contain only letters and whitespace!');
         }
@@ -31,7 +31,7 @@ var app = app || {};
     };
 
     Event.prototype.setType = function(type) {
-        var regex = /[A-z ]+/g;
+        var regex = /\b[A-z ]+\b/g;
         if (!regex.test(type)) {
             throw new Error('Type should contain only letters and whitespace!');
         }
@@ -44,9 +44,9 @@ var app = app || {};
     };
 
     Event.prototype.setDuration = function(duration) {
-        var regex = /[0-9]+/g;
+        var regex = /\b[0-9]+\b/g;
         if (!regex.test(duration)) {
-            throw new Error('Duraion should contain only digits!');
+            throw new Error('Duration should contain only digits!');
         }
 
         this._duration = duration;
@@ -65,8 +65,6 @@ var app = app || {};
     };
 
     eventsSystem._Event = Event;
-    eventsSystem.event = function(options) {
-        return new Event(options);
-    };
+    eventsSystem.event = Event;
 
 })(app);

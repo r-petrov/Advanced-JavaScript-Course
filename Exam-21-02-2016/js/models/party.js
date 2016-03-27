@@ -3,26 +3,34 @@ var app = app || {};
 (function(eventsSystem) {
     function Party(options) {
         eventsSystem._Event.call(this, options);
-        this._isCatered = this.setIsCatered(options.isCatered);
-        this._isBirthday = this.setIsBirthday(options.isBirthday);
-        this._organiser = this.setOrganiser(options.organiser);
+        this.setIsCatered(options.isCatered);
+        this.setIsBirthday(options.isBirthday);
+        this.setOrganiser(options.organiser);
     }
 
     Party.extends(eventsSystem._Event);
 
-    Party.prototype.getIsCatered = function() {
+    Party.prototype.checkIsCatered = function() {
         return this._isCatered;
     };
 
     Party.prototype.setIsCatered = function(isCatered) {
+        if(!(typeof(isCatered) === "boolean")){
+            throw new Error('The value should be only "true" or "false"');
+        }
+
         this._isCatered = isCatered;
     };
 
-    Party.prototype.getIsBirthday = function() {
+    Party.prototype.checkIsBirthday = function() {
         return this._isBirthday;
     };
 
     Party.prototype.setIsBirthday = function(isBirthday) {
+        if(!(typeof(isBirthday) === "boolean")){
+            throw new Error('The value should be only "true" or "false"');
+        }
+
         this._isBirthday = isBirthday;
     };
 
@@ -38,9 +46,5 @@ var app = app || {};
         this._organiser = organiser;
     };
 
-    eventsSystem.party = function(options) {
-        return new Party(options);
-    };
-
-
+    eventsSystem.party = Party;
 })(app);

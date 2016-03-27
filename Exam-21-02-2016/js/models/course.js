@@ -2,8 +2,8 @@ var app = app || {};
 
 (function(eventsSystem) {
     function Course(name, numberOfLectures) {
-        this._name = this.setName(name);
-        this._numberOfLectures = this.setNumberOfLectures(numberOfLectures);
+        this.setName(name);
+        this.setNumberOfLectures(numberOfLectures);
     }
 
     Course.prototype.getName = function() {
@@ -11,7 +11,7 @@ var app = app || {};
     };
 
     Course.prototype.setName = function(name) {
-        var regex = /[A-z ]+/g;
+        var regex = /\b[A-z ]+\b/g;
         if (!regex.test(name)) {
             throw new Error('Name should contain only letters and whitespace!');
         }
@@ -24,13 +24,13 @@ var app = app || {};
     };
 
     Course.prototype.setNumberOfLectures = function(numberOfLectures) {
-        var regex = /[0-9]+/g;
+        var regex = /\b[0-9]+\b/g;
         if (!regex.test(numberOfLectures)) {
             throw new Error('Number of lectures should contain only digits!');
         }
+
+        this._numberOfLectures = numberOfLectures;
     };
 
-    eventsSystem.course = function(options) {
-        return new Course(options);
-    }
+    eventsSystem.course = Course;
 })(app);

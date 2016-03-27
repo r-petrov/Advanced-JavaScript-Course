@@ -2,8 +2,8 @@ var app = app || {};
 
 (function(eventsSystem) {
     function Hall(name, capacity) {
-        this._name = this.setName(name);
-        this._capacity = this.setCapacity(capacity);
+        this.setName(name);
+        this.setCapacity(capacity);
         this.parties = [];
         this.lectures = [];
     }
@@ -15,6 +15,9 @@ var app = app || {};
         else if (event instanceof eventsSystem.lecture) {
             this.lectures.push(event);
         }
+        else {
+            throw new Error('Invalid event');
+        }
     };
 
     Hall.prototype.getName = function() {
@@ -22,7 +25,7 @@ var app = app || {};
     };
 
     Hall.prototype.setName = function(name) {
-        var regex = /[A-z ]+/g;
+        var regex = /\b[A-z ]+\b/g;
         if (!regex.test(name)) {
             throw new Error('Name should contain only letters and whitespace!');
         }
@@ -35,7 +38,7 @@ var app = app || {};
     };
 
     Hall.prototype.setCapacity = function(capacity) {
-        var regex = /[0-9]+/g;
+        var regex = /\b[0-9]+\b/g;
         if (!regex.test(capacity)) {
             throw new Error('Capacity of hall should contain only digits!');
         }
@@ -43,7 +46,5 @@ var app = app || {};
         this._capacity = capacity;
     };
 
-    eventsSystem.hall = function(name, capacity) {
-        return new Hall(name, capacity);
-    };
+    eventsSystem.hall = Hall;
 })(app);
